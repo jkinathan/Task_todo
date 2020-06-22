@@ -9,7 +9,7 @@ html {
     font-size: 100%;
 }
 body {
-    background: #b1f6cb;
+    background: #a3ada7;
     font-family: 'Open Sans',sans-serif;
 }
 /* super basic grid structure */
@@ -155,11 +155,11 @@ button {
     font-size: 20px;
 }
 .taskAdd {
-    background: #444;
+    background:blue;
     padding-left: 31px;
 }
 .taskAdd:hover {
-    background: #303030;
+    background: #b47aeb;
 }
 .taskDelete {
     background: #e74c3c;
@@ -231,7 +231,7 @@ button {
     background: #f39c12;
 }
 .category-Cleaning {
-    background: #16a085;
+    background: #2b16a0;
 }
 .category-Other {
     background: #d35400;
@@ -273,7 +273,7 @@ footer a {
 }
 .taskCheckbox:checked:before {
     content: '\f14a';
-    color: #16a085;
+    color: #162fa0;
 }
 /* custom select menu */
 .taskCategory {

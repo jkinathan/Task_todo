@@ -3,7 +3,7 @@ from django.views.generic import ListView
 from .models import Category, TodoList
 
 # Create your views here.
-
+#function based views require a request and return a response
 def index(request): #function based view
     todos = TodoList.objects.all() #quering all todos with the object manager
     categories = Category.objects.all() #getting all categories with object manager
@@ -16,7 +16,8 @@ def index(request): #function based view
             dater = str(request.POST["date"]) 
             categoryr = request.POST["category_select"] #category
             contentr = titler + " -- " + dater + " " + categoryr #content
-            Todo = TodoList(title=titler, content=contentr, due_date=dater, category=Category.objects.get(name=categoryr))
+            author = request.user
+            Todo = TodoList(author=author, title=titler, content=contentr, due_date=dater, category=Category.objects.get(name=categoryr))
             Todo.save() #saving the todo 
             
             return redirect("/") #reloading the page
@@ -26,4 +27,6 @@ def index(request): #function based view
             for todo_id in checkedlist:
                 todo = TodoList.objects.get(id=int(todo_id)) #getting todo id
                 todo.delete() #deleting todo
-    return render(request, "index.html", {"todos": todos, "categories":categories})
+                
+    #if its not a post request, show a GET for the todo 
+    return render(request, "todoapp/index.html", {"todos": todos, "categories":categories})
