@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from .models import Category, TodoList
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 #function based views require a request and return a response
+@login_required
 def index(request): #function based view
     todos = TodoList.objects.all() #quering all todos 
     categories = Category.objects.all() #getting all categories
