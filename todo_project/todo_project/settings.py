@@ -38,12 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todoapp',
+    'crispy_forms',
     #all-auth
     'django.contrib.sites',#new
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTHENTICATION_BACKENDS = [
     
