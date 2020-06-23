@@ -4,17 +4,69 @@
   <meta charset="UTF-8">
   <title>TodoApp </title>
   {% load static %}
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    
 </head>
 <body>
 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="{% url 'index' %}">Tasks Todo</a>
 
+  <!-- Links -->
+  <ul class="nav navbar-nav menu_nav ml-auto">
+    {% if user.is_authenticated %}
+                     
+        <li class=" nav-item submenu dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                PROFILE
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}" style="color:blue">
+                        My Profile
+                        <img src="" alt="" width="18px" class="pull-right">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'account_logout' %}" class="nav-link" style="color:blue">
+                        Logout
+                        <!-- <span class="pull-right glyphicon glyphicon-log-out">
+                            ::before
+                        </span> -->
+                    </a>
+                </li>
+            </ul> 
+        </li>
+        <!-- <li class="nav-item"> 
+            <a href="#" class="nav-link">Hello, {{ request.user}}</a> 
+
+        </li> -->
+        <li class="nav-item"> 
+            <a href="#" class="nav-link">Hello, {{ request.user }}</a> 
+
+        </li>
+
+        {% else %}
+        <li class="nav-item submenu dropdown">
+            <a href="accounts/login" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login / Sign Up</a>
+            <ul class="dropdown-menu">
+                <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account_signup' %}">Signup</a></li>
+            </ul>
+        </li> 
+        {% endif %}
+    </ul>
+</nav>
 {% block content %}
 
 {% endblock content %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
 </body>
 </html>

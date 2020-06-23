@@ -10,8 +10,8 @@
             <form action="" method="post">
             {% csrf_token %} 
                 <div class="inputContainer">
-                    <input type="text" id="description" class="" placeholder="What do you need to do?" name="description" required>
-                    <label for="description" style="color:blue">Description / Task Title</label>
+                    <input type="text" id="description" class="" placeholder="Enter the task todo" name="description" required>
+                    <label for="description" style="color:blue">Task Title</label>
                 </div>
                 <div class="inputContainer">
                     <i class="fa fa-caret-down selectArrow"></i>
@@ -27,6 +27,7 @@
                     <input type="date" id="dueDate" class="taskDate" name="date">
                     <label for="dueDate" style="color:blue">Due Date</label>
                 </div>
+                
                 <div class="row">
                     <button class="btn btn-outline-primary btn-sm" name="taskAdd" type="submit"><i class="fa fa-folder"></i>Add task</button>
                     <button class="btn btn-outline-danger btn-sm" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();" ><i class="fa fa-trash"></i>Delete Tasks</button>
