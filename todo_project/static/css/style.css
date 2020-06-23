@@ -21,6 +21,9 @@ body {
     -webkit-box-shadow: 0 0 2px rgba(0,0,0,0.2);
             box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
+.btn:hover {
+    background-color: rgb(220, 160, 248);
+  }
 .row {
     display: block;
     padding: 10px;
@@ -213,9 +216,9 @@ button {
     width: 75px;
     text-align: center;
     border-radius: 2px;
-    float: right;
+    /* float: right; */
     font-weight: normal;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     margin-right: 20px;
 }
 .category- {
