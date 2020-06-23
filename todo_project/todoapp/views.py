@@ -5,11 +5,11 @@ from .models import Category, TodoList
 # Create your views here.
 #function based views require a request and return a response
 def index(request): #function based view
-    todos = TodoList.objects.all() #quering all todos with the object manager
-    categories = Category.objects.all() #getting all categories with object manager
+    todos = TodoList.objects.all() #quering all todos 
+    categories = Category.objects.all() #getting all categories
     
     if request.method == "POST":
-        #checking if the request method is a POST
+        
         if "taskAdd" in request.POST: #checking if there is a request to add a todo
             
             titler = request.POST["description"] 
@@ -17,7 +17,8 @@ def index(request): #function based view
             categoryr = request.POST["category_select"] #category
             contentr = titler + " -- " + dater + " " + categoryr #content
             author = request.user
-            Todo = TodoList(author=author, title=titler, content=contentr, due_date=dater, category=Category.objects.get(name=categoryr))
+            Todo = TodoList(author=author, title=titler, content=contentr,
+                            due_date=dater, category=Category.objects.get(name=categoryr))
             Todo.save() #saving the todo 
             
             return redirect("/") #reloading the page
