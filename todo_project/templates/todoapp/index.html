@@ -21,10 +21,10 @@
                         <option class="" value="{{ category.name }}" name="{{ category.name }}">{{ category.name }}</option>
                     {% endfor %}
                     </select>
-                    <label for="category" style="color:blue">CATEGORY (insert new catetory at /admin)</label>
+                    <label for="category" style="color:blue">CATEGORY (insert new category at /admin)</label>
                 </div>
                 <div class="inputContainer">
-                    <input type="date" id="dueDate" class="taskDate" name="date">
+                    <input type="date" id="dueDate" class="taskDate" name="date" required>
                     <label for="dueDate" style="color:blue">Due Date</label>
                 </div>
                 
@@ -32,6 +32,24 @@
                     <button class="btn btn-outline-primary btn-sm" name="taskAdd" type="submit"><i class="fa fa-folder"></i>Add task</button>
                     <button class="btn btn-outline-danger btn-sm" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();" ><i class="fa fa-trash"></i>Delete Tasks</button>
                 </div>
+                {% comment %} <div class="row">
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div> {% endcomment %}
+                
+                    {% if messages %}
+                    
+                        <div class="inputContainer">
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">{{ message|safe }}</div>
+                        {% endfor %}
+                        </div>
+                    
+                    {% endif %}
+                    
             <ul class="taskList">
             {% for todo in todos %} <!-- django template lang - for loop -->
                 <li class="taskItem">
