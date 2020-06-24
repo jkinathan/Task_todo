@@ -35,9 +35,7 @@ def index(request): #function based view
                     todo = TodoList.objects.get(id=int(todo_id)) #getting todo id object
                     if request.user == todo.author: 
                         todo.delete() #deleting todo by id
-                    # else:
-                    #     err=form.errors
-                    #     return reverse('signup',{'err':err})
+                    
                     else:
                         messages.error(request, "Cannot delete other user's Todo item!")
         else:

@@ -32,14 +32,7 @@
                     <button class="btn btn-outline-primary btn-sm" name="taskAdd" type="submit"><i class="fa fa-folder"></i>Add task</button>
                     <button class="btn btn-outline-danger btn-sm" name="taskDelete" formnovalidate="" type="submit" onclick="$('input#sublist').click();" ><i class="fa fa-trash"></i>Delete Tasks</button>
                 </div>
-                {% comment %} <div class="row">
-                    {% if messages %}
-                        {% for message in messages %}
-                        <div class="alert {% if message.tags %} alert-{{ message.tags }}{% endif %}">{{ message|safe }}</div>
-                        {% endfor %}
-                    {% endif %}
-                </div> {% endcomment %}
-                
+               
                     {% if messages %}
                     
                         <div class="inputContainer">
