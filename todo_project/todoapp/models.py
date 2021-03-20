@@ -10,6 +10,7 @@ class Category(models.Model):
         verbose_name_plural = ("Categories")
     def __str__(self):
         return self.name #name to be shown in admin dashboard
+        
 class TodoList(models.Model): 
     title = models.CharField(max_length=250) 
     content = models.TextField(blank=True) 
